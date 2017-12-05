@@ -190,3 +190,20 @@ def long_name_steals_a_ton?
   most_steals = players.sort_by{|player| player.fetch(:steals)}.last[:player_name]
   true if player_with_longest_name && most_steals
 end
+
+
+def get_all_players(game_hash)
+  game_hash.values.reduce([]) { |acc, team_data|
+    team_data[:players].each { |player|
+      puts player[:player_name]
+      x = player[:player_name]
+      acc.push(x)
+    }
+  }
+end
+
+game_hash = game_hash()
+all_players = get_all_players(game_hash)
+puts all_players
+
+daniel.seehausen@flatironschool.com
